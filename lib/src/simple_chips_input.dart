@@ -150,6 +150,7 @@ class SimpleChipsInputState extends State<SimpleChipsInput> {
                 style: widget.chipTextStyle,
               ),
             ),
+            if (widget.deleteIcon != null) SizedBox(width: 5),
             if (widget.deleteIcon != null)
               GestureDetector(
                 onTap: () {
