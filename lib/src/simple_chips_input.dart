@@ -10,6 +10,7 @@ class SimpleChipsInput extends StatefulWidget {
   const SimpleChipsInput({
     super.key,
     required this.separatorCharacter,
+    this.intialValues = const [],
     this.placeChipsSectionAbove = true,
     this.widgetContainerDecoration = const BoxDecoration(),
     this.marginBetweenChips =
@@ -43,6 +44,9 @@ class SimpleChipsInput extends StatefulWidget {
 
   /// Character to seperate the output. For example: ' ' will seperate the output by space.
   final String separatorCharacter;
+
+  /// Intial value for chips
+  final List<String> intialValues;
 
   /// Whether to place the chips section above or below the text field.
   final bool placeChipsSectionAbove;
@@ -125,6 +129,7 @@ class SimpleChipsInputState extends State<SimpleChipsInput> {
   @override
   void initState() {
     super.initState();
+    _chipsText.addAll(widget.intialValues);
     _controller = widget.controller ?? TextEditingController();
     _formKey = widget.formKey ?? GlobalKey<FormState>();
     _focusNode = widget.focusNode ?? FocusNode();
